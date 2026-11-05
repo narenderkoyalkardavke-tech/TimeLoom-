@@ -1,0 +1,220 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6fb;
+    color: #1e293b;
+}
+
+/* Sidebar */
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #172554;
+    color: white;
+    padding: 30px 20px;
+}
+
+.sidebar h2 {
+    font-size: 25px;
+    margin-bottom: 40px;
+}
+
+.sidebar nav a {
+    display: block;
+    color: #cbd5e1;
+    text-decoration: none;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+    background: #2563eb;
+    color: white;
+}
+
+/* Main section */
+
+.main {
+    margin-left: 250px;
+    padding: 40px;
+    min-height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+}
+
+header h1 {
+    font-size: 29px;
+    color: #172554;
+}
+
+header p {
+    margin-top: 10px;
+    color: #64748b;
+}
+
+.profile {
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+}
+
+/* Cards */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-icon {
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    color: #64748b;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.card h1 {
+    color: #2563eb;
+    font-size: 30px;
+}
+
+.card p {
+    color: #94a3b8;
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+/* Productivity */
+
+.productivity-box,
+.recent-activity {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    margin-top: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+}
+
+.productivity-box h2,
+.recent-activity h2 {
+    margin-bottom: 20px;
+}
+
+.productivity-box h1 {
+    color: #2563eb;
+    font-size: 38px;
+    margin-bottom: 12px;
+}
+
+.productivity-box p {
+    color: #64748b;
+    margin-bottom: 20px;
+}
+
+.progress {
+    width: 100%;
+    height: 13px;
+    background: #e2e8f0;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, #2563eb, #7c3aed);
+    border-radius: 20px;
+}
+
+/* Activities */
+
+.activity {
+    display: flex;
+    justify-content: space-between;
+    padding: 18px 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.completed {
+    color: #16a34a;
+}
+
+.pending {
+    color: #f59e0b;
+}
+
+.sidebar-footer {
+    margin-top: 50px;
+    color: #94a3b8;
+    font-size: 12px;
+}
+
+footer {
+    text-align: center;
+    margin-top: 35px;
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+/* Responsive */
+
+@media (max-width: 1000px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 650px) {
+    .sidebar {
+        width: 160px;
+        padding: 20px 10px;
+    }
+
+    .main {
+        margin-left: 160px;
+        padding: 15px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 15px;
+    }
+}

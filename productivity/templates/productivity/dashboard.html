@@ -1,0 +1,144 @@
+```html
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TimeLoom | Productivity Dashboard</title>
+
+    <link rel="stylesheet" href="{% static 'productivity/css/style.css' %}">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+
+        <h2>⏳ TimeLoom</h2>
+
+        <nav>
+            <a href="#" class="active">🏠 Dashboard</a>
+            <a href="#">📋 My Tasks</a>
+            <a href="#">⏱️ Time Tracker</a>
+            <a href="#">📊 Analytics</a>
+            <a href="#">⚙️ Settings</a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <p>Stay Focused. Stay Productive.</p>
+        </div>
+
+    </div>
+
+
+    <!-- Main Content -->
+    <div class="main">
+
+        <!-- Header -->
+        <header>
+
+            <div>
+                <h1>Welcome to TimeLoom 👋</h1>
+                <p>Organize your time. Improve your productivity.</p>
+            </div>
+
+            <div class="profile">
+                <span>👤</span>
+                <span>My Profile</span>
+            </div>
+
+        </header>
+
+
+        <!-- Dashboard Cards -->
+        <section class="cards">
+
+            <div class="card">
+                <div class="card-icon">📋</div>
+                <h3>Total Tasks</h3>
+                <h1>{{ total_tasks }}</h1>
+                <p>Today's tasks</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">✅</div>
+                <h3>Completed Tasks</h3>
+                <h1>{{ completed_tasks }}</h1>
+                <p>Successfully completed</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">⏳</div>
+                <h3>Pending Tasks</h3>
+                <h1>{{ pending_tasks }}</h1>
+                <p>Tasks remaining</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🎯</div>
+                <h3>Focus Hours</h3>
+                <h1>{{ focus_hours }}</h1>
+                <p>Today's focus time</p>
+            </div>
+
+        </section>
+
+
+        <!-- Productivity Section -->
+        <section class="productivity-box">
+
+            <h2>Today's Productivity</h2>
+
+            <h1>{{ productivity }}%</h1>
+
+            <p>Keep going! You are making progress.</p>
+
+            <div class="progress">
+                <div class="progress-bar"
+                     data-progress="{{ productivity }}">
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- Recent Activity -->
+        <section class="recent-activity">
+
+            <h2>Recent Activity</h2>
+
+            <div class="activity">
+                <span>📚 Complete Python Project</span>
+                <span class="completed">Completed</span>
+            </div>
+
+            <div class="activity">
+                <span>💻 Practice Data Structures</span>
+                <span class="pending">Pending</span>
+            </div>
+
+            <div class="activity">
+                <span>🗄️ Study SQL Queries</span>
+                <span class="pending">Pending</span>
+            </div>
+
+        </section>
+
+
+        <!-- Footer -->
+        <footer>
+            <p>© 2026 TimeLoom. Manage Your Time Better.</p>
+        </footer>
+
+    </div>
+
+
+    <!-- JavaScript -->
+    <script src="{% static 'productivity/js/script.js' %}"></script>
+
+</body>
+</html>
+
