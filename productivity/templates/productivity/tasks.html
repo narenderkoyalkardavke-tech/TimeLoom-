@@ -1,0 +1,92 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Tasks | TimeLoom</title>
+
+    <link rel="stylesheet"
+          href="{% static 'productivity/css/style.css' %}">
+</head>
+
+<body>
+
+<div class="main-content">
+
+    <header class="header">
+        <h1>My Tasks</h1>
+        <a href="{% url 'dashboard' %}">Back to Dashboard</a>
+    </header>
+
+    <div class="task-actions">
+        <a href="{% url 'task_create' %}" class="btn">
+            + Add New Task
+        </a>
+    </div>
+
+    <div class="task-list">
+
+        {% for task in tasks %}
+
+        <div class="task-card">
+
+            <h3>{{ task.title }}</h3>
+
+            <p>{{ task.description }}</p>
+
+            <p>Category: {{ task.category }}</p>
+
+            <p>Priority: {{ task.priority }}</p>
+
+            <p>Deadline: {{ task.deadline|default:"Not set" }}</p>
+
+            <p>
+                Status:
+                {% if task.is_completed %}
+                    Completed
+                {% else %}
+                    Pending
+                {% endif %}
+            </p>
+
+            <div class="task-buttons">
+
+                <form method="POST"
+                      action="{% url 'task_toggle' task.id %}">
+                    {% csrf_token %}
+                    <button type="submit">
+                        {% if task.is_completed %}
+                            Mark Pending
+                        {% else %}
+                            Mark Completed
+                        {% endif %}
+                    </button>
+                </form>
+
+                <a href="{% url 'task_update' task.id %}">
+                    Edit
+                </a>
+
+                <a href="{% url 'task_delete' task.id %}">
+                    Delete
+                </a>
+
+            </div>
+
+        </div>
+
+        {% empty %}
+
+        <p>No tasks available. Add your first task!</p>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Task | TimeLoom</title>
+
+    <link rel="stylesheet" href="{% static 'productivity/css/style.css' %}">
+</head>
+
+<body>
+
+<div class="main-content">
+
+    <header class="header">
+        <h1>Manage Task</h1>
+        <a href="{% url 'task_list' %}">Back to My Tasks</a>
+    </header>
+
+    <div class="task-card">
+
+        <form method="POST">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button type="submit" class="btn">
+                Save Task
+            </button>
+
+            <a href="{% url 'task_list' %}">
+                Cancel
+            </a>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

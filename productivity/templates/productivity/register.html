@@ -1,0 +1,81 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Account | TimeLoom</title>
+
+    <link rel="stylesheet"
+          href="{% static 'productivity/css/style.css' %}">
+</head>
+
+<body>
+
+<div class="main-content">
+
+    <div class="task-card">
+
+        <h1>Create Your TimeLoom Account</h1>
+        <p>Start managing your time and productivity.</p>
+
+        {% if messages %}
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <label>Username</label>
+            <input type="text"
+                   name="username"
+                   placeholder="Enter username"
+                   required>
+
+            <br><br>
+
+            <label>Email Address</label>
+            <input type="email"
+                   name="email"
+                   placeholder="Enter email"
+                   required>
+
+            <br><br>
+
+            <label>Password</label>
+            <input type="password"
+                   name="password"
+                   placeholder="Create password"
+                   required>
+
+            <br><br>
+
+            <label>Confirm Password</label>
+            <input type="password"
+                   name="confirm_password"
+                   placeholder="Confirm password"
+                   required>
+
+            <br><br>
+
+            <button type="submit" class="btn">
+                Create Account
+            </button>
+
+        </form>
+
+        <p>
+            Already have an account?
+            <a href="{% url 'login' %}">Login here</a>
+        </p>
+
+    </div>
+
+</div>
+
+</body>
+</html>
